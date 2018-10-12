@@ -1,0 +1,12 @@
+# Sums the even numbers not exceeding n of the fibonacci sequence
+
+fib = [1,2]
+efib = []
+n = 40000
+fibsum = 0
+while fib[-1] + fib[-2] <= n:
+    fib.append(fib[-1] + fib[-2])
+for i in fib:
+    if i % 2 == 0:
+        fibsum += i
+print(fibsum)
