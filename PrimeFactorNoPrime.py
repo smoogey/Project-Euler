@@ -3,8 +3,8 @@ import math
 
 n=600851475145
 
-def createFactorList(factoree):
 
+def createFactorList(factoree):
     factorList = list()
 
     while not factoree % 2:
