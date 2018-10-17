@@ -1,7 +1,11 @@
 import time
 import math
 
-n=600851475145
+#This file finds the prime factors of 'n' by dividing the operand by each number. If operand%candidate==0,
+#keep dividing until its no longer the case, add candidate to list of factors and keep going with new operand until
+#candiate >= sqrt(operand)
+
+n=600851475145697
 
 
 def createFactorList(factoree):
@@ -12,9 +16,9 @@ def createFactorList(factoree):
         factoree = int(factoree / 2)
 
     for factorCandidate in range(3, factoree, 2):
-        if factoree == factorCandidate:
-            factorList.append(factorCandidate)
-            factoree = 1
+        if factorCandidate >= math.ceil(math.sqrt(factoree)):
+            factorList.append(factoree)
+            return factorList
         if factoree == 1:
             return factorList
 

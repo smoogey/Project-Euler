@@ -1,5 +1,7 @@
 import math
 
+#This is just andy's but renamed so I would remember it.
+
 n = 600851475143  # Number to be considered.
 
 

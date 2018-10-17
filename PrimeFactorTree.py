@@ -1,6 +1,10 @@
 import time
 import math
 
+#This file finds the prime factors of 'n' by doing finding each next prime and trying to divide the operand by the prime
+#If operand%prime==0, keep dividing until that's not the case, add the prime to the list and find the next prime until
+#prime >= operand.
+
 n=300000
 
 def findFactorPrimes(factoree):
