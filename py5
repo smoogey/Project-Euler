@@ -1,0 +1,53 @@
+# Lists semiprime types less than num
+
+def squaresAndCubes(num):
+    semiprimes = []
+    for i in range(2,num):
+        if i**2 <= num:
+            semiprimes.append(i**2)
+        if i**3 <= num:
+            semiprimes.append(i**3)
+    semiprimes.sort()
+    return semiprimes
+
+# Finds the largest semiprime of each type
+
+def bigSemiprimes(num):
+    semiprimes = squaresAndCubes(num)
+    for i in reversed(semiprimes):
+        for j in semiprimes:
+            if i % j == 0 and i != j:
+                semiprimes.remove(j)
+    return semiprimes
+
+# Finds primes less than num
+
+def getPrimes(num):
+    primes = [2]
+    p = 3
+    while p <= num:
+        primes.append(p)
+        p += 2
+    for i in primes:
+        for j in primes:
+            if i != j and j % i == 0:
+                primes.remove(j)
+    return primes
+    
+# Finds the smallest multiple of the numbers 1 - 20
+
+def smallProd(num):
+    p = 1
+    semiprimes = bigSemiprimes(num + 1)
+    primes = getPrimes(num)
+    semiprimes = semiprimes + primes
+    semiprimes.sort()
+    for i in reversed(semiprimes):
+        for j in semiprimes:
+            if j % i == 0 and j != i:
+                semiprimes.remove(i)
+    for i in semiprimes:
+        p = p * i
+    return p
+
+print(smallProd(10))
