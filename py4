@@ -1,11 +1,13 @@
+# This code finds the largest palindrome that is the product of two three digit numbers. 
+
 import math
 
 # reverse the list range(minNum,1000)
 
-def reverse(minNum):
+def reverseList(minNum):
     nums = []
-    for i in range(minNum,1000):
-        nums.append(1799 - i)
+    for i in reversed(range(minNum,1000)):
+        nums.append(i)
     return nums
 
 # makes a list of the digits of a number 100000 <= x <= 999999
@@ -22,10 +24,22 @@ def digits(num):
             power = power - 1
     return digitList
 
+# Reverses the digits of a number.
+
+def reverse(num):
+    digitList = digits(num)
+    revDigitList = []
+    for i in reversed(digitList):
+        revDigitList.append(i)
+    return revDigitList
+
+print(reverse(123456))
+    
 # compares the digits and reversed digits of a number 100000 <= x <= 999999
 
 def compare(num):
-    if digits(num) == reversed(digits(num)):
+    check = None
+    if digits(num) == reverse(num):
         check = True
     else:
         check = False
@@ -35,11 +49,10 @@ def compare(num):
 
 def palindrome(minNum):
     palindromes = []
-    print(reverse(minNum))
-    for i in reverse(minNum):
-        for j in reverse(minNum):
+    for i in reverseList(minNum):
+        for j in reverseList(minNum):
             if compare(i * j):
                 palindromes.append(i * j)
     return(palindromes)
 
-print(palindrome(985))
+print(max(palindrome(900)))
