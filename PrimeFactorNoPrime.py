@@ -5,7 +5,9 @@ import math
 #keep dividing until its no longer the case, add candidate to list of factors and keep going with new operand until
 #candiate >= sqrt(operand)
 
-n=600851475145697
+n=6008514751456973526
+n=5867690186969
+#n=8559361
 
 
 def createFactorList(factoree):
