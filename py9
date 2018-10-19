@@ -1,0 +1,26 @@
+# Finds the product abc a pythagorean triplet a,b,c that adds to a+b+c=1000.
+
+import math
+
+def tripletFinder(maxNum):
+    tripletList = []
+    for i in range(maxNum,2,-1):
+        for j in range(1,maxNum):
+            if math.sqrt(j**2 + i**2) % 1 == 0 and j < i:
+                tripletList.append([j,i,int(math.sqrt(j**2 + i**2))])
+    return tripletList
+
+def tripletSum(maxNum):
+    tripletList = tripletFinder(maxNum)
+    for i in tripletList:
+        if sum(i) == 1000:
+            return i
+
+def tripletProd(triplet):
+    tripletList = triplet
+    prod = 1
+    for i in tripletList:
+        prod = prod * i
+    return prod
+
+print(tripletProd(tripletSum(500)))
