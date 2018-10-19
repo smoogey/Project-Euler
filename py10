@@ -1,0 +1,19 @@
+# Finds the sum of the primes below 2,000,000
+
+import math
+
+def primeSieve(target):
+    index = 2
+    primes = list()
+    sieve = [True for i in range(target)]
+    while index < target:
+        if sieve[index] == True:
+            for i in range(index * 2, target, index):
+                sieve[i] = False
+        index += 1
+    for i in range(2, target):
+        if sieve[i] == True:
+            primes.append(i)
+    return primes
+
+print(sum(primeSieve(2000000)))
