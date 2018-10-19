@@ -21,4 +21,5 @@ def primeSieve(target):
                 break
     return primes
 
-print(primeSieve(10001)[-1])
+#print(primeSieve(10001)[-1])
+print(primeSieve(10000))
