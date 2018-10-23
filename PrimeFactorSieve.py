@@ -1,8 +1,9 @@
-# Finds the max prime divisor of n.
-
 import math
 
-n = 600851475143   # Number to be considered.
+#This is just andy's but renamed so I would remember it.
+
+n = 600851475143  # Number to be considered.
+
 
 # Reduces number so that primes list isn't too large for processor.
 
@@ -11,13 +12,14 @@ def numRed(num):
         num = int(math.sqrt(num) + 1)
     return num
 
+
 # Makes a list of primes up to a reduced x
 
 def getPrimes(x):
     primes = [2]
     p = 3
-    
-    while p <= numRed(x) +1:
+
+    while p <= numRed(x) + 1:
         primes.append(p)
         p += 2
 
@@ -25,8 +27,9 @@ def getPrimes(x):
         for j in primes:
             if i != j and j % i == 0:
                 primes.remove(j)
-                
+
     return primes
+
 
 # Makes a list of prime factors of a reduced x
 
@@ -40,7 +43,9 @@ def getFactors(x):
 
     return factors
 
+
 print(getFactors(n))
+
 
 # Makes a list of prime factors for x.
 
@@ -53,8 +58,8 @@ def factor(x):
             x = x / max(factors)
             allFactors.append(max(factors))
         factors = getFactors(x)
-            
 
     return sorted(allFactors)
+
 
 print(factor(99999))
